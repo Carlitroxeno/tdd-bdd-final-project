@@ -206,3 +206,13 @@ class TestProductModel(unittest.TestCase):
         for product in found:
             self.assertEqual(product.price, price)
 
+    def test_find_by_price_type_string(self):
+        """ It should find products by Price when price is type string """
+        products = ProductFactory.create_batch(3)
+        for product in products:
+            product.create()
+
+        price = products[0].price
+        count = len([product for product in products if product.price == price])
+        product_search = Product.find_by_price(str(price))
+        self.assertEqual(product_search.count(), count)
