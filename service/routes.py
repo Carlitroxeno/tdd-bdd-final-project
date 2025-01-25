@@ -106,7 +106,6 @@ def create_products():
 # LIST PRODUCTS
 ######################################################################
 @app.route("/products", methods=["GET"])
-@app.route("/products", methods=["GET"])
 def list_products():
     """Returns a list of Products"""
     app.logger.info("Request to list Products...")
